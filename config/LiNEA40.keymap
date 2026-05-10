@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,
+            //スクロール方向を逆転,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -79,6 +79,12 @@
         clickprev {
             bindings = <&mkp MB4>;
             key-positions = <27 26>;
+        };
+
+        zenkakuhankaku {
+            bindings = <&kp LANGUAGE_5>;
+            key-positions = <39 38>;
+            layers = <0>;
         };
     };
 
@@ -119,6 +125,8 @@
 &trans  &kp F1  &kp F2  &kp F3  &kp F12                    &kp INT_YEN      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL
 &trans  &trans  &trans  &trans  &trans   &trans    &trans  &trans                         &kp NUMBER_0  &kp PERIOD    &kp ENTER
             >;
+
+            sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
 
         MARK {
@@ -129,7 +137,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                       &kp SLASH     &kp MINUS             &kp UNDER
             >;
 
-            sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
+            sensor-bindings = <&re_kp DOWN_ARROW UP_ARROW>;
         };
 
         FUNCTION {
