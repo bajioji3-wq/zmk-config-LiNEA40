@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -138,10 +138,10 @@
 
         NUMBER_ARROW {
             bindings = <
-&kp ASTRK    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
-&kp SLASH    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
-&kp INT_YEN  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PAGE_UP      &kp RIGHT_BRACKET
-&trans       &trans        &kp NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
+&kp ASTRK          &kp NUMBER_7     &kp NUMBER_8  &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
+&kp SLASH          &kp NUMBER_4     &kp NUMBER_5  &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
+&kp INT_YEN        &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PAGE_UP      &kp RIGHT_BRACKET
+&kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_LEFT SCRL_RIGHT>;
