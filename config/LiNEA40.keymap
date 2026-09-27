@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -66,14 +66,14 @@
     combos {
         compatible = "zmk,combos";
 
-        CenterClick {
-            bindings = <&mkp MB3>;
-            key-positions = <29 28>;
+        RightClick {
+            bindings = <&mkp MB2>;
+            key-positions = <19 18>;
         };
 
-        rightclick {
-            bindings = <&mkp MB2>;
-            key-positions = <18 19>;
+        Centerclick {
+            bindings = <&mkp MB3>;
+            key-positions = <28 29>;
         };
 
         lang02 {
@@ -156,10 +156,10 @@
 
         WEB {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans           &trans       &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &kp LC(LS(TAB))  &kp LC(TAB)  &trans  &trans  &kp LC(N)
-&trans  &trans  &trans  &trans  &trans                    &trans           &trans       &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LC(W)                     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans           &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &kp LC(LS(TAB))  &kp LC(TAB)  &kp LG(N)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans           &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(W)                     &trans     &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
