@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -135,7 +135,7 @@
             bindings = <
 &kp ASTRK          &kp NUMBER_7     &kp NUMBER_8  &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
 &kp SLASH          &kp NUMBER_4     &kp NUMBER_5  &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
-&kp INT_YEN        &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_UP     &kp AT_SIGN     &kp PAGE_DOWN    &kp RIGHT_BRACKET
+&kp INT_YEN        &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PG_UP        &kp RIGHT_BRACKET
 &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
             >;
 
@@ -190,8 +190,8 @@
             bindings = <
 &mt ESC Q         &kp W         &kp E             &kp R   &kp T                                      &kp Y        &kp U  &kp I        &kp O              &kp P
 &kp A             &kp S         &kp D             &kp F   &kp G                                      &kp H        &kp J  &kp K        &lt 5 L            &mkp MB1
-&mt Z LEFT_SHIFT  &kp X         &kp C             &kp V   &kp B                                      &kp N        &kp M  &kp COMMA    &kp PERIOD         &mt RIGHT_SHIFT SLASH
-&kp LEFT_ALT      &kp LEFT_WIN  &kp LEFT_CONTROL  &trans  &kp SPACE  &lt 4 LANG1    &lt 3 BACKSPACE  &lt 2 ENTER         &lt 6 MINUS  &kp RIGHT_COMMAND  &kp DELETE
+&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V   &kp B                                      &kp N        &kp M  &kp COMMA    &kp PERIOD         &mt RIGHT_SHIFT SLASH
+&kp LEFT_ALT      &kp LEFT_WIN  &kp LEFT_CONTROL  &trans  &kp SPACE  &lt 4 MINUS    &lt 3 BACKSPACE  &lt 2 ENTER         &lt 6 MINUS  &kp RIGHT_COMMAND  &kp DELETE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
