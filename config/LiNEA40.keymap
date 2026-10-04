@@ -88,19 +88,40 @@
         };
     };
 
-    behaviors {
-        re_kp: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
+  behaviors {
+    re_kp: sensor_rotate_kp {
+        compatible = "zmk,behavior-sensor-rotate-var";
+        #sensor-binding-cells = <2>;
+        bindings = <&kp>, <&kp>;
+    };
 
-        mouse_scrl: mouse_wheel_scrl {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
+    mouse_scrl: mouse_wheel_scrl {
+        compatible = "zmk,behavior-sensor-rotate-var";
+        #sensor-binding-cells = <2>;
+        bindings = <&msc>, <&msc>;
 
-            tap-ms = <20>;
+        tap-ms = <20>;
+    };
+
+    // Bluetooth接続先0 → デフォルトレイヤー
+    bt_default: bt_default {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&bt BT_SEL 0>, <&to 0>;
+    };
+
+    // Bluetooth接続先1 → Windows レイヤー7
+    bt_windows: bt_windows {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&bt BT_SEL 1>, <&to 7>;
+    };
+
+    // Bluetooth接続先2 → iOS レイヤー8
+    bt_ios: bt_ios {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings = <&bt BT_SEL 2>, <&to 8>;
         };
     };
 
@@ -174,7 +195,7 @@
         WIRELESS {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                        &trans          &trans        &trans        &trans        &trans
-&trans  &trans  &trans  &trans  &trans                        &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans  &trans  &trans  &trans                        &bt_default    &bt_windows    &bt_ios    &bt BT_SEL 3    &bt BT_SEL 4
 &trans  &trans  &trans  &trans  &trans                        &trans          &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL
 &trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &bt BT_CLR_ALL                &trans        &bootloader   &studio_unlock
             >;
