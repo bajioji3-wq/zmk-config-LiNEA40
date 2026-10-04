@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_scaler 1 2>,
             <&zip_xy_to_scroll_mapper>;
     };
@@ -88,41 +88,47 @@
         };
     };
 
-  behaviors {
-    re_kp: sensor_rotate_kp {
-        compatible = "zmk,behavior-sensor-rotate-var";
-        #sensor-binding-cells = <2>;
-        bindings = <&kp>, <&kp>;
-    };
-
-    mouse_scrl: mouse_wheel_scrl {
-        compatible = "zmk,behavior-sensor-rotate-var";
-        #sensor-binding-cells = <2>;
-        bindings = <&msc>, <&msc>;
-
-        tap-ms = <20>;
-    };
-
-    // Bluetooth接続先0 → デフォルトレイヤー
-    bt_default: bt_default {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&bt BT_SEL 0>, <&to 0>;
-    };
-
-    // Bluetooth接続先1 → Windows レイヤー7
-    bt_windows: bt_windows {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&bt BT_SEL 1>, <&to 7>;
-    };
-
-    // Bluetooth接続先2 → iOS レイヤー8
-    bt_ios: bt_ios {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&bt BT_SEL 2>, <&to 8>;
+    behaviors {
+        re_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
         };
+
+        mouse_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+
+            tap-ms = <20>;
+        };
+
+        // Bluetooth接続先0 → デフォルトレイヤー
+
+        bt_default: bt_default {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 0>;
+        };
+
+        // Bluetooth接続先1 → Windows レイヤー7
+
+        bt_windows: bt_windows {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &to 7>;
+        };
+
+        // Bluetooth接続先2 → iOS レイヤー8
+
+        bt_ios: bt_ios {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &to 8>;
+        };
+    };
+
+    macros {
     };
 
     keymap {
@@ -150,10 +156,10 @@
 
         NUMBER_ARROW {
             bindings = <
-&kp ASTRK          &kp NUMBER_7     &kp NUMBER_8  &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
-&kp SLASH          &kp NUMBER_4     &kp NUMBER_5  &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
-&kp INT_YEN        &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PAGE_UP      &kp RIGHT_BRACKET
-&kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
+&kp ASTRK               &kp NUMBER_7  &kp NUMBER_8               &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
+&kp SLASH               &kp NUMBER_4  &kp NUMBER_5               &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
+&mt LEFT_SHIFT INT_YEN  &kp NUMBER_1  &kp NUMBER_2               &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PAGE_UP      &kp RIGHT_BRACKET
+&kp LEFT_CONTROL        &kp LEFT_ALT  &mt LEFT_COMMAND NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_LEFT SCRL_RIGHT>;
@@ -185,7 +191,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans                       &trans              &trans               &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                       &kp LC(LS(TAB))     &kp LC(TAB)          &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                       &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                       &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &kp LG(L)  &kp LG(W)                                &trans  &trans  &trans
             >;
 
@@ -194,10 +200,10 @@
 
         WIRELESS {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                        &trans          &trans        &trans        &trans        &trans
-&trans  &trans  &trans  &trans  &trans                        &bt_default    &bt_windows    &bt_ios    &bt BT_SEL 3    &bt BT_SEL 4
-&trans  &trans  &trans  &trans  &trans                        &trans          &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL
-&trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &bt BT_CLR_ALL                &trans        &bootloader   &studio_unlock
+&trans  &trans  &trans  &trans  &trans                        &trans          &trans       &trans   &trans        &trans
+&trans  &trans  &trans  &trans  &trans                        &bt_default     &bt_windows  &bt_ios  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans  &trans  &trans  &trans                        &trans          &trans       &trans   &bt BT_CLR    &bt BT_CLR_ALL
+&trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &bt BT_CLR_ALL               &trans   &bootloader   &studio_unlock
             >;
         };
 
