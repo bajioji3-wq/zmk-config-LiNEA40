@@ -101,14 +101,7 @@
             bindings = <&msc>, <&msc>;
 
             tap-ms = <20>;
-        };
-
-        // Bluetooth接続先0 → デフォルトレイヤー
-
-        bt_default: bt_default {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 0>;
+       
         };
 
         // Bluetooth接続先1 → Windows レイヤー7
