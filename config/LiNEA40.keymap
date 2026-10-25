@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+            //スクロール方向を逆転,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_scaler 1 3>,
             <&zip_xy_to_scroll_mapper>;
     };
@@ -88,23 +88,20 @@
         };
     };
 
-   behaviors {
-    re_kp: sensor_rotate_kp {
-        compatible = "zmk,behavior-sensor-rotate-var";
-        #sensor-binding-cells = <2>;
-        bindings = <&kp>, <&kp>;
-    };
-
-    mouse_scrl: mouse_wheel_scrl {
-        compatible = "zmk,behavior-sensor-rotate-var";
-        #sensor-binding-cells = <2>;
-        bindings = <&msc>, <&msc>;
-
-        tap-ms = <20>;
+    behaviors {
+        re_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
         };
-    };
 
-    macros {
+        mouse_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+
+            tap-ms = <20>;
+        };
     };
 
     keymap {
@@ -112,10 +109,10 @@
 
         mac_default {
             bindings = <
-&mt ESC Q         &kp W         &kp E             &kp R   &kp T                                    &kp Y        &kp U  &kp I        &kp O              &kp P
-&kp A             &kp S         &kp D             &kp F   &kp G                                    &kp H        &kp J  &kp K        &lt 5 L            &mkp MB1
-&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V   &kp B                                    &kp N        &kp M  &kp COMMA    &kp PERIOD         &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_COMMAND  &trans  &kp SPACE  &lt 4 TAB    &lt 3 BACKSPACE  &lt 2 ENTER         &lt 6 MINUS  &kp RIGHT_COMMAND  &kp DELETE
+&mt ESC Q         &kp W         &kp E             &kp R   &kp T                                      &kp Y        &kp U  &kp I        &kp O              &kp P
+&kp A             &kp S         &kp D             &kp F   &kp G                                      &kp H        &kp J  &kp K        &lt 5 L            &mkp MB1
+&mt LEFT_SHIFT Z  &kp X         &kp C             &kp V   &kp B                                      &kp N        &kp M  &kp COMMA    &kp PERIOD         &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_COMMAND  &trans  &lt 3 SPACE  &lt 4 TAB    &lt 3 BACKSPACE  &lt 2 ENTER         &lt 6 MINUS  &kp RIGHT_COMMAND  &kp DELETE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -132,10 +129,10 @@
 
         NUMBER_ARROW {
             bindings = <
-&kp ASTRK               &kp NUMBER_7  &kp NUMBER_8               &kp NUMBER_9  &kp PLUS                               &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
-&kp SLASH               &kp NUMBER_4  &kp NUMBER_5               &kp NUMBER_6  &kp MINUS                              &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
-&mt LEFT_SHIFT INT_YEN  &kp NUMBER_1  &kp NUMBER_2               &kp NUMBER_3  &kp EQUAL                              &kp LEFT_BRACKET      &kp PAGE_DOWN   &kp AT_SIGN     &kp PAGE_UP      &kp RIGHT_BRACKET
-&kp LEFT_CONTROL        &kp LEFT_ALT  &mt LEFT_COMMAND NUMBER_0  &trans        &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
+&kp LS(LG(NUMBER_3))             &kp F7        &kp F8            &kp F9  &kp F10                                &trans                &kp HOME        &kp UP_ARROW    &kp END          &trans
+&kp LS(LG(NUMBER_4))             &kp F4        &kp F5            &kp F6  &kp F11                                &kp LEFT_PARENTHESIS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_PARENTHESIS
+&mt LEFT_SHIFT LS(LC(NUMBER_5))  &kp F1        &kp F2            &kp F3  &kp F12                                &kp LEFT_BRACKET      &kp MINUS       &kp AT_SIGN     &kp QUESTION     &kp RIGHT_BRACKET
+&kp LEFT_CONTROL                 &kp LEFT_ALT  &kp LEFT_COMMAND  &trans  &kp LC(LEFT)  &kp LC(RIGHT)    &trans  &trans                                &trans          &trans           &trans
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_LEFT SCRL_RIGHT>;
@@ -143,10 +140,10 @@
 
         FUNCTION {
             bindings = <
-&mt SQT DOUBLE_QUOTES  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                    &kp LG(LS(NUMBER_3))  &kp F7  &kp F8  &kp F9  &kp F10
-&kp UNDERSCORE         &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON                                &kp LG(LS(NUMBER_4))  &kp F4  &kp F5  &kp F6  &kp F11
-&kp QUESTION           &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &kp SEMICOLON                            &kp LG(LS(N5))        &kp F1  &kp F2  &kp F3  &kp F12
-&trans                 &trans           &trans        &trans                &trans                 &trans    &trans  &trans                        &trans  &trans  &trans
+&mt SQT DOUBLE_QUOTES  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                    &kp PLUS   &kp NUMBER_7  &kp NUMBER_8  &kp N9        &kp ASTRK
+&kp UNDERSCORE         &kp DOLLAR       &kp PERCENT   &kp CARET             &kp COLON                                &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SLASH
+&kp QUESTION           &kp EXCLAMATION  &kp AT_SIGN   &kp HASH              &kp SEMICOLON                            &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+&trans                 &trans           &trans        &trans                &trans                 &trans    &trans  &trans                   &kp NUMBER_0  &kp EQUAL     &kp INT_YEN
             >;
 
             sensor-bindings = <&inc_dec_kp LEFT RIGHT_ARROW>;
